@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "custom-stock-bar"
-version = "0.1.1"
+version = "0.1.2"
 description = "Tool for convert any price to Custom Bar price"
 authors = ["Beilak <beylak@yandex.ru>"]
 license = "MIT"
