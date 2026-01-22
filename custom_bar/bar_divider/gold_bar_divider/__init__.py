@@ -3,8 +3,8 @@ from .gold_calc import GoldBarCalc
 from .gold_models import GoldBarTypes, GoldBar
 
 __all__ = [
-    GoldBarDivider,
-    GoldBarCalc,
-    GoldBarTypes,
-    GoldBar,
+    "GoldBarDivider",
+    "GoldBarCalc",
+    "GoldBarTypes",
+    "GoldBar",
 ]

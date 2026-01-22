@@ -9,10 +9,10 @@ class BarConverter:
         self._bar_divider: BarDividerProtocol = bar_divider
 
     @staticmethod
-    def _aggregate_price(curr_ohlc: pd.Series):
+    def _aggregate_price(curr_ohlc: pd.Series) -> float:
         # calc curr. total traid price
         # (mean, we don't have all transaction dataset)
-        return (curr_ohlc.open + curr_ohlc.high + curr_ohlc.low + curr_ohlc.close) / 4
+        return float((curr_ohlc.open + curr_ohlc.high + curr_ohlc.low + curr_ohlc.close) / 4)
 
     @staticmethod
     def _make_output_df(price_bars: list[PriceBarModel]) -> pd.DataFrame:

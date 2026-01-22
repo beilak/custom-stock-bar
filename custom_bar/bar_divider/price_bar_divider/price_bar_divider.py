@@ -9,5 +9,5 @@ class PriceDivider:
     def __init__(self, static_restriction: dec.Decimal) -> None:
         self._restriction: dec.Decimal = static_restriction
 
-    def calc_bar_restriction(self, *args, **kwargs) -> dec.Decimal:
+    def calc_bar_restriction(self, *args: object, **kwargs: object) -> dec.Decimal:
         return self._restriction

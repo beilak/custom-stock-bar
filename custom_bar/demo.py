@@ -1,7 +1,7 @@
 import custom_bar.converter as conv
 import custom_bar.bar_divider.gold_bar_divider as gold
 import pandas as pd
-import yfinance as yf
+import yfinance as yf  # type: ignore
 import matplotlib.pyplot as plt
 
 
@@ -22,7 +22,7 @@ def prepare_datetime(yf_df: pd.DataFrame) -> pd.DataFrame:
     return yf_df
 
 
-def plotting(main_price, gold_price):
+def plotting(main_price: pd.DataFrame, gold_price: pd.DataFrame) -> None:
     plt.figure(figsize=(10, 6))
     plt.plot(main_price["close"], label="Main Price", color="green")
     plt.plot(gold_price["close"], label="Gold Price", color="gold")
