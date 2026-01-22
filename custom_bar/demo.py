@@ -42,7 +42,7 @@ def plotting(main_price: pd.DataFrame, gold_price: pd.DataFrame) -> None:
 
 
 # Fetch Gold price historical data
-start_date, end_date = "2010-01-01", "2012-01-01"
+start_date, end_date = "2022-01-01", "2023-01-01"
 
 demo_gold_ticker = "GC=F"
 gold_price_data = yf.download(
