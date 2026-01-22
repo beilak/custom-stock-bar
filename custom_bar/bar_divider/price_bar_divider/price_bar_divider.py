@@ -1,6 +1,5 @@
 """Divider bar by Constant price"""
 import decimal as dec
-from datetime import datetime
 
 
 class PriceDivider:

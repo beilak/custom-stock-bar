@@ -25,6 +25,8 @@ yfinance = "*"
 matplotlib = "*"
 mypy = "*"
 pandas-stubs = "^2.3.3.260113"
+pytest = "^9.0.2"
+pytest-cov = "^7.0.0"
 
 [tool.mypy]
 strict = true
