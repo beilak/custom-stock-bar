@@ -1,7 +1,9 @@
 """Main Converter Price to Custom Bar"""
+
 import pandas as pd
-from .protocols.divider_protocol import BarDividerProtocol
+
 from .models import PriceBarModel
+from .protocols.divider_protocol import BarDividerProtocol
 
 
 class BarConverter:
@@ -12,7 +14,7 @@ class BarConverter:
     def _aggregate_price(curr_ohlc: pd.Series) -> float:
         # calc curr. total traid price
         # (mean, we don't have all transaction dataset)
-        return float((curr_ohlc.open + curr_ohlc.high + curr_ohlc.low + curr_ohlc.close) / 4)
+        return (curr_ohlc.open + curr_ohlc.high + curr_ohlc.low + curr_ohlc.close) / 4
 
     @staticmethod
     def _make_output_df(price_bars: list[PriceBarModel]) -> pd.DataFrame:

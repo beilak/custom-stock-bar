@@ -1,8 +1,15 @@
-import custom_bar.converter as conv
-import custom_bar.bar_divider.gold_bar_divider as gold
+import pdb
+
+import matplotlib.pyplot as plt
 import pandas as pd
 import yfinance as yf  # type: ignore
-import matplotlib.pyplot as plt
+
+import custom_bar.bar_divider.gold_bar_divider as gold
+import custom_bar.converter as conv
+
+
+def remove_yf_multi_colum_level(yf_df: pd.DataFrame) -> pd.DataFrame:
+    return yf_df.droplevel("Ticker", axis=1)
 
 
 def rename_yf_column_names(yf_df: pd.DataFrame) -> pd.DataFrame:
@@ -35,7 +42,7 @@ def plotting(main_price: pd.DataFrame, gold_price: pd.DataFrame) -> None:
 
 
 # Fetch Gold price historical data
-start_date, end_date = "2022-01-01", "2023-01-01"
+start_date, end_date = "2010-01-01", "2012-01-01"
 
 demo_gold_ticker = "GC=F"
 gold_price_data = yf.download(
@@ -44,12 +51,19 @@ gold_price_data = yf.download(
     end=end_date,
     interval="1d",
 )
+if gold_price_data is None:
+    raise ValueError("NO data")
 gold_price_data = rename_yf_column_names(gold_price_data)
 gold_price_data = prepare_datetime(gold_price_data)
+gold_price_data = remove_yf_multi_colum_level(gold_price_data)
 
 demo_gold_ticker = "AAPL"
 stock_price_data = yf.download(demo_gold_ticker, start=start_date, end=end_date)
+if stock_price_data is None:
+    raise ValueError("NO data")
 stock_price_data = rename_yf_column_names(stock_price_data)
+stock_price_data = remove_yf_multi_colum_level(stock_price_data)
+
 stock_price_data = prepare_datetime(stock_price_data)
 
 

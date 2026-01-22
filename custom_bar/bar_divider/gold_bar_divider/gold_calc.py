@@ -1,8 +1,11 @@
 """Gold Bar Calculator"""
-from datetime import datetime
-import pandas as pd
-from .gold_models import GoldBar
+
 import decimal as dec
+from datetime import datetime
+
+import pandas as pd
+
+from .gold_models import GoldBar
 
 
 class GoldBarCalc:
@@ -22,7 +25,6 @@ class GoldBarCalc:
         gold_unit - Size of gold (1g, 1ouz, 1kg. etc)
         for_date_time - Date and Time for which Date it will be calculater
         """
-
         trads = self._gold_df[self._gold_df["date_time"] <= for_date_time].iloc[-1]
         price_for_gram = trads.close
 
